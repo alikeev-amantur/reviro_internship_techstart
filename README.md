@@ -36,6 +36,16 @@ Once you're in the project directory, you can start the application using Docker
 docker-compose up -d --build
 ```
 This command will build and start the Docker containers for the application.
+
+After the containers are up and running, you'll need to apply migrations and create a superuser. Here's how you can do it:
+```bash
+docker-compose exec web python manage.py migrate
+```
+This command will apply any pending database migrations.
+Create Superuser:
+```bash
+docker-compose exec web python manage.py createsuperuser
+```
 ### Accessing the API Documentation
 
 Once the application is up and running, you can access the API documentation using the following URLs:
